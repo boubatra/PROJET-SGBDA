@@ -165,33 +165,37 @@ function listLoginEvents(auth) {
         participant_trouve=false;
         seance_trouve=false;
 
-// var nodemailer = require('nodemailer');
+var nodemailer = require('nodemailer');
 
-// var transporter = nodemailer.createTransport({
-//   service: 'gmail',
-//   auth: {
-//     user: 'asphalt287@gmail.com',
-//     pass: 'aidara647'
-//   }
-// });
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'asphalt287@gmail.com',
+    pass: 'aidara647'
+  }
+});
 
-// var mailOptions = {
-//   from: 'asphalt287@gmail.com',
-//   to: participant.email,
-//   subject: 'TEST MESSAGERIE',
-//   text: 'A JAMAIS LES PREMIERS!'
-// };
+//MESSAGERIE POUR ENVOYER LE FORMULAIRE
+        
+        
+ 
+var mailOptions = {
+  from: 'asphalt287@gmail.com',
+  to: participant.email,
+  subject: 'FORMULAIRE EVALUATION DE LA SEANCE',
+  text: 'https://fr.surveymonkey.com/r/95LKSWH'
+};
 
-// transporter.sendMail(mailOptions, function(error, info){
-//   if (error) {
-//     console.log(error);
-//   } else {
-//     console.log('Email sent: ' + info.response);
-//   }
-// }); 
+transporter.sendMail(mailOptions, function(error, info){
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Email sent: ' + info.response);
+  }
+});  
         
       });
-      // console.log(participants);
+      console.log(participants);
       console.table(seance);
     } else {
       console.log('pas dactivites');
@@ -210,6 +214,10 @@ function listLoginEvents(auth) {
   // app.get('/listepresence.html', function(req, res) {
   //   res.send('index.html');
   // });
+  
+  
+  
+ //INSERTION DES DONNEES RECUPERER DANS LA BASE DE DONNEES 
 const mysql = require('mysql');
 
 var db = mysql.createConnection({
