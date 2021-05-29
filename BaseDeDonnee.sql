@@ -72,3 +72,7 @@ CREATE TABLE Formulaire(
     Matiere VARCHAR(20),
     Note VARCHAR(10)
     );
+CREATE TRIGGER note_eval
+BEFORE UPDATE ON Formulaire 
+FOR EACH ROW 
+SET NEW.note = (NEW.note *20)/48;
