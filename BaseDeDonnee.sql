@@ -55,3 +55,20 @@ CREATE TABLE Eleve(
     PrenomEl VARCHAR(20) NOT NULL,
     FOREIGN KEY (Id_Eleve) REFERENCES Participant(Id_Participant)
 );
+CREATE TABLE Liste_Presence(
+    Id_Liste INT auto_increment PRIMARY KEY,
+    Id_Participant INT,
+    Id_Classe INT,
+    Id_Matiere INT,
+    FOREIGN KEY (Id_Classe) REFERENCES Classe(Id_Classe),
+    FOREIGN KEY (Id_Matiere) REFERENCES Matiere(Id_Matiere),
+    FOREIGN KEY (Id_Participant) REFERENCES Participant(id_Participant)
+);
+
+CREATE TABLE Formulaire(
+    id_Formulaire INT auto_increment PRIMARY KEY,
+    Nom_Etudiant VARCHAR(10),
+    Classe VARCHAR(10),
+    Matiere VARCHAR(20),
+    Note VARCHAR(10)
+    );
