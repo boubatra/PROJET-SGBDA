@@ -208,14 +208,6 @@ transporter.sendMail(mailOptions, function(error, info){
       console.log('Express est actif sur le port:',3000 );
   });
 
-  // app.get('/page.html', function(req, res) {
-  //   response.sendFile( __dirname  + '/page.html');
-  // });
-  // app.get('/listepresence.html', function(req, res) {
-  //   res.send('index.html');
-  // });
-  
-  
   
  //INSERTION DES DONNEES RECUPERER DANS LA BASE DE DONNEES 
 const mysql = require('mysql');
@@ -227,6 +219,8 @@ var db = mysql.createConnection({
     database:'projet_schema'
 });
 
+  
+  //ROUTAGE
 app.get("/api/seances", (req, res) => {
   let sql = "select * from seance";
   db.query(sql, (err, result) => {
@@ -243,7 +237,7 @@ app.get("/api/seances", (req, res) => {
   });
 });
 
-app.post("/api/seances/", (req, res) => {
+app.post("/listepresence.html", (req, res) => {
   var sql2 ='INSERT INTO seance(Id_Conference,Date,Partage_ecran) VALUES (?,?,?)';
   db.query(sql2,['Azy3','dateAujourdhquiee',87], (err, result2) => {
     if (err) throw err;
